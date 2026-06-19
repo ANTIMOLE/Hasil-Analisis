@@ -1,4 +1,4 @@
-# ZENIT Analysis Results
+# Analysis Results
 
 Hasil analisis statistik perbandingan performa **REST vs tRPC** pada sistem e-commerce ZENIT, dihasilkan oleh ZENIT Analysis Pipeline dari raw data k6 load testing.
 
