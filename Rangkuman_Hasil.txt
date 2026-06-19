@@ -1,0 +1,975 @@
+RANGKUMAN HASIL
+
+================================================================================
+RINGKASAN HASIL ANALISIS
+================================================================================
+
+S01_BROWSE / LOAD (N=10)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                        43.27      51.74      -8.47   -0.80    besar     ✓
+   P99 (ms)                        88.84     108.17     -19.33   -1.01    besar     ✓
+   Throughput (req/s)              92.82      92.72      +0.10    0.61   sedang     ✗
+   Avg RT (ms)                     33.04      34.91      -1.86   -0.56   sedang     ✗
+   CPU % (Node)                     5.06       6.37      -1.31   -4.01    besar     ✓
+   CPU % (System)                  13.38      14.82      -1.45   -1.32    besar     ✓
+   RAM (MB)                       236.67     296.08     -59.42   -1.67    besar     ✓
+   SLA Breach Rate                0.0007     0.0010    -0.0003   -0.34    kecil     ✗
+   Func. Error Rate               0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Failed                0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Count                 200844     200664       +180    0.51   sedang     ✗
+   Payload Avg (bytes)              5914       5904        +10    0.71   sedang     ✗
+   DB Active Conn                   0.27       0.28      -0.01   -0.07   trivia     ✗
+   DB Cache Hit %                 100.00     100.00      -0.00   -0.32    kecil     ✗
+   DB TPS Delta                    28.39      28.55      -0.15   -0.42    kecil     ✗
+   DB Query Avg (ms)                7.19       7.38      -0.19   -0.08   trivia     ✗
+   Network (KB/s)                 651.54     657.31      -5.76   -0.54   sedang     ✗
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     latency_product_detail                REST=   39.2  tRPC=   47.8  Δ=   -8.6  d=-0.81
+     latency_product_filter                REST=   55.9  tRPC=   64.6  Δ=   -8.8  d=-0.75
+     latency_product_list                  REST=   40.6  tRPC=   49.1  Δ=   -8.4  d=-0.84
+     latency_product_search                REST=   49.2  tRPC=   60.8  Δ=  -11.5  d=-0.85
+
+S01_BROWSE / SOAK (N=1)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                        37.87      40.29      -2.42     N/A        ?     —
+   P99 (ms)                        68.34      76.20      -7.86     N/A        ?     —
+   Throughput (req/s)              96.32      96.25      +0.07     N/A        ?     —
+   Avg RT (ms)                     33.65      34.82      -1.17     N/A        ?     —
+   CPU % (Node)                     5.12       6.22      -1.10     N/A        ?     —
+   CPU % (System)                  13.40      14.04      -0.64     N/A        ?     —
+   RAM (MB)                       282.97     355.73     -72.76     N/A        ?     —
+   SLA Breach Rate                0.0005     0.0004    +0.0000     N/A        ?     —
+   Func. Error Rate               0.0000     0.0000    +0.0000     N/A        ?     —
+   HTTP Req Failed                0.0000     0.0000    +0.0000     N/A        ?     —
+   HTTP Req Count                1445105    1443870      +1235     N/A        ?     —
+   Payload Avg (bytes)              5902       5907         -5     N/A        ?     —
+   DB Active Conn                   0.24       0.25      -0.01     N/A        ?     —
+   DB Cache Hit %                 100.00     100.00      +0.00     N/A        ?     —
+   DB TPS Delta                    29.46      29.31      +0.15     N/A        ?     —
+   DB Query Avg (ms)                6.49       6.13      +0.36     N/A        ?     —
+   Network (KB/s)                 701.35     700.03      +1.32     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Memory slope REST: slope = 0.0053 MB/sample (≈3.81 MB/hour @ 5s interval), R²=0.123, p=0.0000
+   Memory slope tRPC: slope = 0.0079 MB/sample (≈5.67 MB/hour @ 5s interval), R²=0.055, p=0.0000
+
+S01_BROWSE / SPIKE (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                        79.05     397.24    -318.19   -1.98    besar     ✗
+   P99 (ms)                       662.31     822.95    -160.64   -0.32    kecil     ✗
+   Throughput (req/s)             154.37     151.78      +2.59    0.95    besar     ✗
+   Avg RT (ms)                     51.50      92.68     -41.18   -1.03    besar     ✗
+   CPU % (Node)                     7.22       8.23      -1.01   -0.55   sedang     ✗
+   CPU % (System)                  17.51      17.63      -0.11   -0.03   trivia     ✗
+   RAM (MB)                       236.63     301.38     -64.75   -3.30    besar    ✓*
+   SLA Breach Rate                0.0138     0.0349    -0.0211   -0.88    besar     ✗
+   Func. Error Rate               0.0370     0.0375    -0.0005   -0.90    besar     ✗
+   HTTP Req Failed                0.0370     0.0375    -0.0005   -0.90    besar     ✗
+   HTTP Req Count                  82443      81060      +1384    1.02    besar     ✗
+   Payload Avg (bytes)              5702       5675        +27    0.61   sedang     ✗
+   DB Active Conn                   0.42       0.25      +0.17    0.63   sedang     ✗
+   DB Cache Hit %                 100.00     100.00      +0.00    0.00   trivia     —
+   DB TPS Delta                    41.65      38.33      +3.32    0.55   sedang     ✗
+   DB Query Avg (ms)                6.05       4.83      +1.22    0.57   sedang     ✗
+   Network (KB/s)                 961.25     820.02    +141.23    1.20    besar     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   ✗  FUNCTIONAL ERROR TINGGI: REST=3.7%  tRPC=3.8% (threshold=1%)
+
+   Per-Endpoint P95 (ms):
+     latency_product_detail                REST=   72.6  tRPC=  392.4  Δ= -319.7  d=-2.00
+     latency_product_filter                REST=   88.9  tRPC=  406.7  Δ= -317.7  d=-2.00
+     latency_product_list                  REST=   75.1  tRPC=  383.9  Δ= -308.8  d=-1.95
+     latency_product_search                REST=  104.5  tRPC=  424.3  Δ= -319.7  d=-1.89
+
+S01_BROWSE / STRESS (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                        98.41     109.89     -11.47   -0.87    besar     ✗
+   P99 (ms)                      1473.48    1248.66    +224.83    0.28    kecil     ✗
+   Throughput (req/s)             212.26     219.16      -6.89   -1.66    besar     ✗
+   Avg RT (ms)                    145.71      79.33     +66.38    1.51    besar     ✗
+   CPU % (Node)                     9.38      12.42      -3.05   -7.84    besar    ✓*
+   CPU % (System)                  25.04      25.57      -0.53   -0.82    besar     ✗
+   RAM (MB)                       299.51     341.57     -42.06   -1.93    besar     ✗
+   SLA Breach Rate                0.0220     0.0211    +0.0009    0.11   trivia     ✗
+   Func. Error Rate               0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Failed                0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Count                 294042     303470      -9428   -1.62    besar     ✗
+   Payload Avg (bytes)              5909       5906         +4    0.25    kecil     ✗
+   DB Active Conn                   1.17       0.65      +0.53    5.95    besar    ✓*
+   DB Cache Hit %                 100.00     100.00      +0.00    0.00   trivia     —
+   DB TPS Delta                    59.00      60.00      -1.00   -0.59   sedang     ✗
+   DB Query Avg (ms)               16.69       9.41      +7.28    4.02    besar    ✓*
+   Network (KB/s)                1496.82    1524.16     -27.35   -0.61   sedang     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     latency_product_detail                REST=   80.6  tRPC=   98.6  Δ=  -17.9  d=-1.59
+     latency_product_filter                REST=  866.5  tRPC=  186.7  Δ= +679.8  d=0.79
+     latency_product_list                  REST=   91.9  tRPC=  101.1  Δ=   -9.2  d=-0.60
+     latency_product_search                REST=  134.8  tRPC=  145.4  Δ=  -10.6  d=-0.73
+
+S02_SHOPPING / LOAD (N=10)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                        78.93      97.12     -18.19   -0.58   sedang     ✗
+   P99 (ms)                       290.14     354.17     -64.03   -0.43    kecil     ✗
+   Throughput (req/s)             148.27     147.80      +0.47    0.65   sedang     ✗
+   Avg RT (ms)                     46.91      50.33      -3.42   -0.47    kecil     ✗
+   CPU % (Node)                    14.68      15.78      -1.10   -1.48    besar     ✓
+   CPU % (System)                  23.38      23.79      -0.41   -0.36    kecil     ✗
+   RAM (MB)                       253.01     301.91     -48.89   -1.68    besar     ✓
+   SLA Breach Rate                0.0033     0.0037    -0.0004   -0.12   trivia     ✗
+   Func. Error Rate               0.0000     0.0000    -0.0000   -0.32    kecil     ✗
+   HTTP Req Failed                0.0000     0.0000    -0.0000   -0.32    kecil     ✗
+   HTTP Req Count                 321933     321024       +910    0.53   sedang     ✗
+   Payload Avg (bytes)             10230      10234         -4   -2.23    besar     ✓
+   DB Active Conn                   0.18       0.18      +0.00    0.06   trivia     ✗
+   DB Cache Hit %                 100.00     100.00      +0.00    0.00   trivia     —
+   DB TPS Delta                   784.05     638.02    +146.03    5.45    besar     ✓
+   DB Query Avg (ms)                0.03       0.04      -0.00   -1.62    besar     ✓
+   Network (KB/s)                 640.99     632.56      +8.43    0.27    kecil     ✗
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     latency_browse                        REST=   69.2  tRPC=   82.1  Δ=  -12.8  d=-0.51
+     latency_cart_add                      REST=   85.6  tRPC=  105.6  Δ=  -20.0  d=-0.59
+     latency_cart_get                      REST=   71.0  tRPC=   88.3  Δ=  -17.3  d=-0.59
+     latency_cart_remove                   REST=   81.0  tRPC=  100.7  Δ=  -19.7  d=-0.66
+     latency_cart_update                   REST=   84.7  tRPC=  104.9  Δ=  -20.2  d=-0.64
+     latency_login                         REST=  407.2  tRPC=  402.8  Δ=   +4.4  d=0.12
+
+S02_SHOPPING / LOAD / C3 (N=1)
+   ⚠  INTERIM: N=1 < 10 — bukan confirmatory penuh
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                          N/A      76.11        N/A     N/A        ?     —
+   P99 (ms)                          N/A     264.45        N/A     N/A        ?     —
+   Throughput (req/s)                N/A     148.23        N/A     N/A        ?     —
+   Avg RT (ms)                       N/A      46.40        N/A     N/A        ?     —
+   CPU % (Node)                      N/A      14.03        N/A     N/A        ?     —
+   CPU % (System)                    N/A      21.59        N/A     N/A        ?     —
+   RAM (MB)                          N/A     257.63        N/A     N/A        ?     —
+   SLA Breach Rate                   N/A     0.0034        N/A     N/A        ?     —
+   Func. Error Rate                  N/A     0.0000        N/A     N/A        ?     —
+   HTTP Req Failed                   N/A     0.0000        N/A     N/A        ?     —
+   HTTP Req Count                    N/A     322084        N/A     N/A        ?     —
+   Payload Avg (bytes)               N/A      10212        N/A     N/A        ?     —
+   DB Active Conn                    N/A       0.14        N/A     N/A        ?     —
+   DB Cache Hit %                    N/A      99.99        N/A     N/A        ?     —
+   DB TPS Delta                      N/A     753.19        N/A     N/A        ?     —
+   DB Query Avg (ms)                 N/A       0.03        N/A     N/A        ?     —
+   Network (KB/s)                    N/A     611.92        N/A     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+S02_SHOPPING / LOAD / C4 (N=1)
+   ⚠  INTERIM: N=1 < 10 — bukan confirmatory penuh
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                          N/A     144.59        N/A     N/A        ?     —
+   P99 (ms)                          N/A     456.79        N/A     N/A        ?     —
+   Throughput (req/s)                N/A     153.68        N/A     N/A        ?     —
+   Avg RT (ms)                       N/A      62.03        N/A     N/A        ?     —
+   CPU % (Node)                      N/A      16.24        N/A     N/A        ?     —
+   CPU % (System)                    N/A      25.12        N/A     N/A        ?     —
+   RAM (MB)                          N/A     262.44        N/A     N/A        ?     —
+   SLA Breach Rate                   N/A     0.0055        N/A     N/A        ?     —
+   Func. Error Rate                  N/A     0.0000        N/A     N/A        ?     —
+   HTTP Req Failed                   N/A     0.0000        N/A     N/A        ?     —
+   HTTP Req Count                    N/A     333427        N/A     N/A        ?     —
+   Payload Avg (bytes)               N/A      12382        N/A     N/A        ?     —
+   DB Active Conn                    N/A       0.16        N/A     N/A        ?     —
+   DB Cache Hit %                    N/A      99.99        N/A     N/A        ?     —
+   DB TPS Delta                      N/A     811.85        N/A     N/A        ?     —
+   DB Query Avg (ms)                 N/A       0.04        N/A     N/A        ?     —
+   Network (KB/s)                    N/A     742.48        N/A     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+S02_SHOPPING / SOAK (N=1)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                        58.49      66.35      -7.85     N/A        ?     —
+   P99 (ms)                       168.05     248.80     -80.75     N/A        ?     —
+   Throughput (req/s)             154.34     153.95      +0.39     N/A        ?     —
+   Avg RT (ms)                     41.19      44.77      -3.58     N/A        ?     —
+   CPU % (Node)                    15.59      16.54      -0.95     N/A        ?     —
+   CPU % (System)                  25.38      25.45      -0.07     N/A        ?     —
+   RAM (MB)                       278.27     297.53     -19.27     N/A        ?     —
+   SLA Breach Rate                0.0008     0.0021    -0.0014     N/A        ?     —
+   Func. Error Rate               0.0000     0.0000    -0.0000     N/A        ?     —
+   HTTP Req Failed                0.0000     0.0000    -0.0000     N/A        ?     —
+   HTTP Req Count                2317021    2310288      +6733     N/A        ?     —
+   Payload Avg (bytes)             10230      10237         -6     N/A        ?     —
+   DB Active Conn                   0.22       0.18      +0.05     N/A        ?     —
+   DB Cache Hit %                 100.00     100.00      +0.00     N/A        ?     —
+   DB TPS Delta                   834.30     664.08    +170.22     N/A        ?     —
+   DB Query Avg (ms)                0.04       0.04      -0.00     N/A        ?     —
+   Network (KB/s)                 691.59     676.52     +15.07     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Memory slope REST: slope = 0.0082 MB/sample (≈5.90 MB/hour @ 5s interval), R²=0.140, p=0.0000
+   Memory slope tRPC: slope = 0.0038 MB/sample (≈2.75 MB/hour @ 5s interval), R²=0.022, p=0.0000
+
+S02_SHOPPING / SPIKE (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                      3044.31    2940.63    +103.67    0.13   trivia     ✗
+   P99 (ms)                     11478.50   13321.75   -1843.25   -0.32    kecil     ✗
+   Throughput (req/s)             135.55     126.55      +9.00    0.92    besar     ✗
+   Avg RT (ms)                   1114.03    1303.02    -188.99   -0.72   sedang     ✗
+   CPU % (Node)                    23.23      23.54      -0.31   -0.21    kecil     ✗
+   CPU % (System)                  29.18      28.94      +0.23    0.16   trivia     ✗
+   RAM (MB)                       307.17     305.80      +1.37    0.04   trivia     ✗
+   SLA Breach Rate                0.4727     0.5084    -0.0357   -9.25    besar    ✓*
+   Func. Error Rate               0.0002     0.0000    +0.0002    0.92    besar     ✗
+   HTTP Req Failed                0.0451     0.0490    -0.0039   -0.88    besar     ✗
+   HTTP Req Count                  73421      68743      +4678    0.89    besar     ✗
+   Payload Avg (bytes)             10225      10236        -11   -1.47    besar     ✗
+   DB Active Conn                   0.15       0.14      +0.01    0.15   trivia     ✗
+   DB Cache Hit %                 100.00     100.00      +0.00    0.00   trivia     —
+   DB TPS Delta                   687.54     510.81    +176.73    5.43    besar    ✓*
+   DB Query Avg (ms)                0.03       0.04      -0.01   -0.79   sedang     ✗
+   Network (KB/s)                 543.69     486.09     +57.60    1.47    besar     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   ⚠  SLA BREACH TINGGI: REST=47.3%  tRPC=50.8% (threshold=5%)
+
+   Per-Endpoint P95 (ms):
+     latency_browse                        REST= 1517.7  tRPC= 2434.4  Δ= -916.7  d=-0.61
+     latency_cart_add                      REST= 3531.8  tRPC= 2986.2  Δ= +545.6  d=0.35
+     latency_cart_get                      REST= 2203.0  tRPC= 2521.5  Δ= -318.5  d=-0.36
+     latency_cart_remove                   REST= 2969.0  tRPC= 2762.9  Δ= +206.0  d=0.23
+     latency_cart_update                   REST= 3444.2  tRPC= 2901.3  Δ= +542.9  d=0.39
+     latency_login                         REST=44503.7  tRPC=43016.5  Δ=+1487.2  d=0.32
+
+S02_SHOPPING / STRESS (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                       709.34    1143.11    -433.78   -4.24    besar    ✓*
+   P99 (ms)                      1258.65    1552.00    -293.35   -2.87    besar    ✓*
+   Throughput (req/s)             307.02     287.47     +19.56    4.98    besar    ✓*
+   Avg RT (ms)                    260.55     363.26    -102.71   -7.46    besar    ✓*
+   CPU % (Node)                    26.65      25.68      +0.97    0.26    kecil     ✗
+   CPU % (System)                  42.05      38.28      +3.77    0.71   sedang     ✗
+   RAM (MB)                       273.48     303.70     -30.22   -0.80    besar     ✗
+   SLA Breach Rate                0.0697     0.1851    -0.1154   -5.20    besar    ✓*
+   Func. Error Rate               0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Failed                0.0000     0.0000    +0.0000    0.58   sedang     ✗
+   HTTP Req Count                 427473     400316     +27157    5.13    besar    ✓*
+   Payload Avg (bytes)             10229      10233         -4   -1.37    besar     ✗
+   DB Active Conn                   0.38       0.27      +0.11    3.30    besar    ✓*
+   DB Cache Hit %                 100.00     100.00      +0.00    0.00   trivia     —
+   DB TPS Delta                  1638.15    1147.54    +490.61    3.26    besar    ✓*
+   DB Query Avg (ms)                0.03       0.04      -0.00   -6.26    besar    ✓*
+   Network (KB/s)                1331.90    1115.21    +216.70    1.67    besar     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   ⚠  SLA BREACH TINGGI: REST=7.0%  tRPC=18.5% (threshold=5%)
+
+   Per-Endpoint P95 (ms):
+     latency_browse                        REST=  709.3  tRPC= 1142.2  Δ= -432.9  d=-4.48
+     latency_cart_add                      REST=  712.0  tRPC= 1145.9  Δ= -434.0  d=-4.23
+     latency_cart_get                      REST=  698.7  tRPC= 1133.9  Δ= -435.2  d=-4.13
+     latency_cart_remove                   REST=  708.1  tRPC= 1148.5  Δ= -440.4  d=-4.18
+     latency_cart_update                   REST=  716.5  tRPC= 1157.0  Δ= -440.4  d=-4.23
+     latency_login                         REST= 5808.0  tRPC= 1266.8  Δ=+4541.1  d=0.53
+
+S03_CHECKOUT / LOAD (N=10)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                       491.84     568.64     -76.80   -0.41    kecil     ✗
+   P99 (ms)                       829.42     902.65     -73.23   -0.34    kecil     ✗
+   Throughput (req/s)             226.80     216.78     +10.02    0.74   sedang     ✓
+   Avg RT (ms)                    173.82     212.57     -38.75   -0.75   sedang     ✓
+   CPU % (Node)                    22.75      23.47      -0.72   -0.71   sedang     ✗
+   CPU % (System)                  37.96      37.11      +0.85    0.52   sedang     ✗
+   RAM (MB)                       332.96     390.18     -57.22   -1.41    besar     ✓
+   SLA Breach Rate                0.0237     0.0338    -0.0101   -0.38    kecil     ✗
+   Func. Error Rate               0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Failed                0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Count                 491297     469560     +21737    0.74   sedang     ✓
+   Payload Avg (bytes)              1613       1564        +48   69.08   tidak_     ⚠
+   DB Active Conn                   0.38       0.31      +0.07    1.33    besar     ✓
+   DB Cache Hit %                  99.99      99.99      +0.00    0.32    kecil     ✗
+   DB TPS Delta                  1099.92     825.09    +274.83    3.95    besar     ✓
+   DB Query Avg (ms)                0.10       0.11      -0.01   -0.22    kecil     ✗
+   Network (KB/s)                1131.41    1072.75     +58.65    0.72   sedang     ✓
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     latency_browse                        REST=  478.7  tRPC=  553.2  Δ=  -74.5  d=-0.40
+     latency_cart_add                      REST=  497.4  tRPC=  574.0  Δ=  -76.6  d=-0.41
+     latency_checkout                      REST=  535.3  tRPC=  615.1  Δ=  -79.8  d=-0.42
+     latency_login                         REST=  722.3  tRPC=  866.6  Δ= -144.3  d=-0.52
+     latency_order_detail                  REST=  483.9  tRPC=  560.7  Δ=  -76.8  d=-0.41
+
+S03_CHECKOUT / LOAD / C3 (N=1)
+   ⚠  INTERIM: N=1 < 10 — bukan confirmatory penuh
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                          N/A     499.64        N/A     N/A        ?     —
+   P99 (ms)                          N/A     730.29        N/A     N/A        ?     —
+   Throughput (req/s)                N/A     221.90        N/A     N/A        ?     —
+   Avg RT (ms)                       N/A     190.93        N/A     N/A        ?     —
+   CPU % (Node)                      N/A      23.04        N/A     N/A        ?     —
+   CPU % (System)                    N/A      37.00        N/A     N/A        ?     —
+   RAM (MB)                          N/A     375.39        N/A     N/A        ?     —
+   SLA Breach Rate                   N/A     0.0173        N/A     N/A        ?     —
+   Func. Error Rate                  N/A     0.0000        N/A     N/A        ?     —
+   HTTP Req Failed                   N/A     0.0000        N/A     N/A        ?     —
+   HTTP Req Count                    N/A     480418        N/A     N/A        ?     —
+   Payload Avg (bytes)               N/A       1564        N/A     N/A        ?     —
+   DB Active Conn                    N/A       0.32        N/A     N/A        ?     —
+   DB Cache Hit %                    N/A      99.99        N/A     N/A        ?     —
+   DB TPS Delta                      N/A    1083.01        N/A     N/A        ?     —
+   DB Query Avg (ms)                 N/A       0.10        N/A     N/A        ?     —
+   Network (KB/s)                    N/A    1121.43        N/A     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+S03_CHECKOUT / SOAK (N=1)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                       326.80     358.59     -31.79     N/A        ?     —
+   P99 (ms)                       720.88     759.91     -39.03     N/A        ?     —
+   Throughput (req/s)             250.26     250.09      +0.17     N/A        ?     —
+   Avg RT (ms)                    121.70     122.55      -0.85     N/A        ?     —
+   CPU % (Node)                    24.95      25.20      -0.25     N/A        ?     —
+   CPU % (System)                  42.56      40.69      +1.87     N/A        ?     —
+   RAM (MB)                       348.23     386.07     -37.85     N/A        ?     —
+   SLA Breach Rate                0.0101     0.0114    -0.0012     N/A        ?     —
+   Func. Error Rate               0.0000     0.0000    +0.0000     N/A        ?     —
+   HTTP Req Failed                0.0000     0.0000    +0.0000     N/A        ?     —
+   HTTP Req Count                3755645    3752057      +3588     N/A        ?     —
+   Payload Avg (bytes)              1614       1566        +48     N/A        ?     —
+   DB Active Conn                   0.45       0.36      +0.09     N/A        ?     —
+   DB Cache Hit %                  99.99      99.99      -0.00     N/A        ?     —
+   DB TPS Delta                  1236.99     966.87    +270.12     N/A        ?     —
+   DB Query Avg (ms)                0.12       0.10      +0.02     N/A        ?     —
+   Network (KB/s)                1327.65    1312.47     +15.17     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Memory slope REST: slope = 0.0058 MB/sample (≈4.19 MB/hour @ 5s interval), R²=0.092, p=0.0000
+   Memory slope tRPC: slope = 0.0053 MB/sample (≈3.79 MB/hour @ 5s interval), R²=0.061, p=0.0000
+
+S03_CHECKOUT / SPIKE (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                      4533.81    4960.34    -426.54   -0.49    kecil     ✗
+   P99 (ms)                     23537.34   28439.18   -4901.83   -4.01    besar    ✓*
+   Throughput (req/s)             145.76     136.29      +9.47    1.04    besar     ✗
+   Avg RT (ms)                   1548.85    1750.58    -201.73   -1.49    besar     ✗
+   CPU % (Node)                    30.32      29.58      +0.74    0.31    kecil     ✗
+   CPU % (System)                  39.39      37.34      +2.05    0.73   sedang     ✗
+   RAM (MB)                       346.46     364.00     -17.53   -0.61   sedang     ✗
+   SLA Breach Rate                0.3757     0.3814    -0.0058   -0.10   trivia     ✗
+   Func. Error Rate               0.0352     0.0183    +0.0169    0.31    kecil     ✗
+   HTTP Req Failed                0.0749     0.0612    +0.0136    0.29    kecil     ✗
+   HTTP Req Count                  78120      72970      +5150    1.01    besar     ✗
+   Payload Avg (bytes)              1599       1559        +40    2.04    besar     ✗
+   DB Active Conn                   0.24       0.22      +0.02    0.22    kecil     ✗
+   DB Cache Hit %                  99.99      99.99      +0.00    0.00   trivia     —
+   DB TPS Delta                   648.14     463.95    +184.18    3.23    besar    ✓*
+   DB Query Avg (ms)                0.15       0.14      +0.00    0.11   trivia     ✗
+   Network (KB/s)                 608.45     507.19    +101.25    1.13    besar     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   ⚠  SLA BREACH TINGGI: REST=37.6%  tRPC=38.1% (threshold=5%)
+   ✗  FUNCTIONAL ERROR TINGGI: REST=3.5%  tRPC=1.8% (threshold=1%)
+
+   Per-Endpoint P95 (ms):
+     latency_browse                        REST= 3412.8  tRPC= 4457.2  Δ=-1044.4  d=-2.31
+     latency_cart_add                      REST= 4654.0  tRPC= 4372.5  Δ= +281.5  d=0.17
+     latency_checkout                      REST= 3675.6  tRPC= 4435.9  Δ= -760.2  d=-2.46
+     latency_login                         REST=59213.9  tRPC=57977.7  Δ=+1236.3  d=0.73
+     latency_order_detail                  REST= 3792.1  tRPC= 4225.6  Δ= -433.5  d=-1.00
+
+S03_CHECKOUT / STRESS (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                      1533.81    1903.67    -369.86   -0.80   sedang     ✗
+   P99 (ms)                      2248.51    2723.92    -475.41   -0.83    besar     ✗
+   Throughput (req/s)             325.50     280.80     +44.70    4.48    besar    ✓*
+   Avg RT (ms)                    748.56     974.93    -226.37   -3.63    besar    ✓*
+   CPU % (Node)                    29.41      30.14      -0.72   -2.38    besar     ✗
+   CPU % (System)                  48.90      46.65      +2.25    2.47    besar     ✗
+   RAM (MB)                       363.53     376.89     -13.36   -0.20    kecil     ✗
+   SLA Breach Rate                0.4264     0.5416    -0.1152  -21.11   tidak_     ⚠
+   Func. Error Rate               0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Failed                0.0000     0.0000    +0.0000    0.00   trivia     —
+   HTTP Req Count                 451169     389495     +61674    4.51    besar    ✓*
+   Payload Avg (bytes)              1612       1564        +48  764.47   tidak_     ⚠
+   DB Active Conn                   0.52       0.42      +0.10    1.46    besar     ✗
+   DB Cache Hit %                  99.99      99.99      +0.00    0.00   trivia     —
+   DB TPS Delta                  1590.34    1079.53    +510.80   12.40   tidak_     ⚠
+   DB Query Avg (ms)                0.11       0.11      +0.00    1.65    besar     ✗
+   Network (KB/s)                1616.76    1389.37    +227.39    3.21    besar    ✓*
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   ⚠  SLA BREACH TINGGI: REST=42.6%  tRPC=54.2% (threshold=5%)
+
+   Per-Endpoint P95 (ms):
+     latency_browse                        REST= 1522.4  tRPC= 1885.2  Δ= -362.8  d=-0.79
+     latency_cart_add                      REST= 1538.0  tRPC= 1907.9  Δ= -370.0  d=-0.80
+     latency_checkout                      REST= 1574.1  tRPC= 1953.1  Δ= -379.0  d=-0.79
+     latency_login                         REST= 1723.8  tRPC= 2037.2  Δ= -313.4  d=-0.95
+     latency_order_detail                  REST= 1532.9  tRPC= 1897.4  Δ= -364.6  d=-0.80
+
+S04_AUTH / LOAD (N=10)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                      7998.68    7970.50     +28.18    0.18   trivia     ✗
+   P99 (ms)                      8495.94    8474.06     +21.87    0.12   trivia     ✗
+   Throughput (req/s)              47.46      47.55      -0.09   -0.20   trivia     ✗
+   Avg RT (ms)                   1683.18    1677.77      +5.40    0.25    kecil     ✗
+   CPU % (Node)                    94.44      98.83      -4.39   -0.49    kecil     ✗
+   CPU % (System)                  91.11      95.35      -4.23   -0.49    kecil     ✗
+   RAM (MB)                       222.03     303.22     -81.18   -2.77    besar     ✓
+   SLA Breach Rate                0.0012     0.0018    -0.0006   -0.29    kecil     ✗
+   Func. Error Rate               0.0043     0.0060    -0.0017   -0.20    kecil     ✗
+   HTTP Req Failed                0.0736     0.0753    -0.0017   -0.21    kecil     ✗
+   HTTP Req Count                 102626     102849       -223   -0.23    kecil     ✗
+   DB Active Conn                   0.07       0.06      +0.01    0.42    kecil     ✗
+   DB Cache Hit %                  99.99      99.99      +0.00    0.00   trivia     ✗
+   DB TPS Delta                   117.26      99.38     +17.89    1.67    besar     ✓
+   DB Query Avg (ms)                0.05       0.05      -0.00   -1.72    besar     ✓
+   Network (KB/s)                  94.83      98.59      -3.76   -0.39    kecil     ✗
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     s04_login_duration                    REST= 8360.0  tRPC= 8340.4  Δ=  +19.5  d=0.12
+     s04_logout_duration                   REST=   56.2  tRPC=   72.0  Δ=  -15.8  d=-0.49
+     s04_me_duration                       REST=   51.1  tRPC=   66.4  Δ=  -15.3  d=-0.47
+     s04_refresh_duration                  REST=   58.7  tRPC=   78.1  Δ=  -19.4  d=-0.64
+
+S04_AUTH / LOAD / C3 (N=1)
+   ⚠  INTERIM: N=1 < 10 — bukan confirmatory penuh
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                          N/A    7855.00        N/A     N/A        ?     —
+   P99 (ms)                          N/A    8361.84        N/A     N/A        ?     —
+   Throughput (req/s)                N/A      47.81        N/A     N/A        ?     —
+   Avg RT (ms)                       N/A    1666.20        N/A     N/A        ?     —
+   CPU % (Node)                      N/A     100.24        N/A     N/A        ?     —
+   CPU % (System)                    N/A      97.00        N/A     N/A        ?     —
+   RAM (MB)                          N/A     297.13        N/A     N/A        ?     —
+   SLA Breach Rate                   N/A     0.0010        N/A     N/A        ?     —
+   Func. Error Rate                  N/A     0.0006        N/A     N/A        ?     —
+   HTTP Req Failed                   N/A     0.0707        N/A     N/A        ?     —
+   HTTP Req Count                    N/A     103398        N/A     N/A        ?     —
+   DB Active Conn                    N/A       0.11        N/A     N/A        ?     —
+   DB Cache Hit %                    N/A      99.99        N/A     N/A        ?     —
+   DB TPS Delta                      N/A     140.95        N/A     N/A        ?     —
+   DB Query Avg (ms)                 N/A       0.05        N/A     N/A        ?     —
+   Network (KB/s)                    N/A      99.75        N/A     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+S04_AUTH / SOAK (N=1)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                      3109.66    3154.27     -44.61     N/A        ?     —
+   P99 (ms)                      3475.11    3539.77     -64.66     N/A        ?     —
+   Throughput (req/s)              49.14      48.77      +0.36     N/A        ?     —
+   Avg RT (ms)                    921.26     932.31     -11.06     N/A        ?     —
+   CPU % (Node)                   102.59      98.53      +4.05     N/A        ?     —
+   CPU % (System)                  98.96      95.06      +3.90     N/A        ?     —
+   RAM (MB)                       236.50     284.61     -48.10     N/A        ?     —
+   SLA Breach Rate                0.0028     0.0032    -0.0004     N/A        ?     —
+   Func. Error Rate               0.0000     0.0000    +0.0000     N/A        ?     —
+   HTTP Req Failed                0.0696     0.0695    +0.0001     N/A        ?     —
+   HTTP Req Count                 737219     731794      +5425     N/A        ?     —
+   DB Active Conn                   0.08       0.07      +0.01     N/A        ?     —
+   DB Cache Hit %                  99.99      99.99      +0.00     N/A        ?     —
+   DB TPS Delta                   130.41     101.02     +29.39     N/A        ?     —
+   DB Query Avg (ms)                0.05       0.06      -0.00     N/A        ?     —
+   Network (KB/s)                 109.32     103.75      +5.57     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Memory slope REST: slope = 0.0196 MB/sample (≈11.77 MB/hour @ 6s interval), R²=0.606, p=0.0000
+   Memory slope tRPC: slope = -0.0045 MB/sample (≈-3.25 MB/hour @ 5s interval), R²=0.013, p=0.0000
+
+S04_AUTH / SPIKE (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                     48401.88   48344.33     +57.55    0.02   trivia     ✗
+   P99 (ms)                     49791.65   49733.96     +57.69    0.02   trivia     ✗
+   Throughput (req/s)              42.57      42.51      +0.07    0.03   trivia     ✗
+   Avg RT (ms)                   4970.19    4945.74     +24.45    0.13   trivia     ✗
+   CPU % (Node)                    82.10      83.96      -1.86   -0.11   trivia     ✗
+   CPU % (System)                  79.65      81.43      -1.77   -0.11   trivia     ✗
+   RAM (MB)                       210.75     276.24     -65.48   -2.71    besar    ✓*
+   SLA Breach Rate                0.0015     0.0008    +0.0007    3.23    besar    ✓*
+   Func. Error Rate               0.0076     0.0019    +0.0057    0.44    kecil     ✗
+   HTTP Req Failed                0.0721     0.0653    +0.0068    0.54   sedang     ✗
+   HTTP Req Count                  22680      22647        +33    0.03   trivia     ✗
+   DB Active Conn                   0.05       0.04      +0.01    0.28    kecil     ✗
+   DB Cache Hit %                  99.99      99.99      +0.00    0.00   trivia     —
+   DB TPS Delta                   100.68      84.14     +16.54    0.88    besar     ✗
+   DB Query Avg (ms)                0.05       0.05      -0.00   -0.30    kecil     ✗
+   Network (KB/s)                  81.54      81.77      -0.23   -0.02   trivia     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     s04_login_duration                    REST=49595.1  tRPC=49560.5  Δ=  +34.6  d=0.01
+     s04_logout_duration                   REST=   51.0  tRPC=   54.3  Δ=   -3.3  d=-0.41
+     s04_me_duration                       REST=   45.1  tRPC=   47.6  Δ=   -2.4  d=-0.41
+     s04_refresh_duration                  REST=   53.8  tRPC=   61.0  Δ=   -7.2  d=-0.82
+
+S04_AUTH / STRESS (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                     20457.22   20719.43    -262.21   -0.87    besar     ✗
+   P99 (ms)                     22687.14   22384.51    +302.63    0.97    besar     ✗
+   Throughput (req/s)              47.96      47.72      +0.24    0.61   sedang     ✗
+   Avg RT (ms)                   4224.50    4245.20     -20.69   -0.51   sedang     ✗
+   CPU % (Node)                    89.20      97.30      -8.10   -8.54    besar    ✓*
+   CPU % (System)                  86.14      93.75      -7.61   -9.01    besar    ✓*
+   RAM (MB)                       199.33     276.15     -76.82   -6.76    besar    ✓*
+   SLA Breach Rate                0.0011     0.0011    -0.0000   -0.02   trivia     ✗
+   Func. Error Rate               0.0141     0.0088    +0.0053    1.06    besar     ✗
+   HTTP Req Failed                0.0825     0.0775    +0.0051    0.89    besar     ✗
+   HTTP Req Count                  66300      65992       +309    0.57   sedang     ✗
+   DB Active Conn                   0.08       0.06      +0.01    0.99    besar     ✗
+   DB Cache Hit %                  99.99      99.99      +0.00    0.00   trivia     —
+   DB TPS Delta                   110.51      97.53     +12.97    9.43    besar    ✓*
+   DB Query Avg (ms)                0.05       0.05      -0.00   -2.68    besar    ✓*
+   Network (KB/s)                  89.94      96.05      -6.12   -3.80    besar    ✓*
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   ✗  FUNCTIONAL ERROR TINGGI: REST=1.4%  tRPC=0.9% (threshold=1%)
+
+   Per-Endpoint P95 (ms):
+     s04_login_duration                    REST=22211.8  tRPC=22189.5  Δ=  +22.3  d=0.07
+     s04_logout_duration                   REST=   51.8  tRPC=   54.9  Δ=   -3.1  d=-1.48
+     s04_me_duration                       REST=   45.4  tRPC=   47.4  Δ=   -1.9  d=-2.18
+     s04_refresh_duration                  REST=   54.2  tRPC=   62.1  Δ=   -7.9  d=-3.53
+
+S05_ADMIN / LOAD (N=10)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                       327.02     327.23      -0.21   -0.02   trivia     ✗
+   P99 (ms)                       434.56     430.01      +4.55    0.10   trivia     ✗
+   Throughput (req/s)              13.52      13.62      -0.09   -1.22    besar     ✓
+   Avg RT (ms)                    138.81     136.31      +2.50    0.33    kecil     ✗
+   CPU % (Node)                    30.87      31.13      -0.27   -0.07   trivia     ✗
+   CPU % (System)                  32.82      33.08      -0.26   -0.07   trivia     ✗
+   RAM (MB)                       194.15     202.70      -8.55   -0.31    kecil     ✗
+   SLA Breach Rate                0.0002     0.0001    +0.0001    0.32    kecil     ✗
+   Func. Error Rate               0.0000     0.0002    -0.0002   -0.30    kecil     ✗
+   HTTP Req Failed                0.0000     0.0041    -0.0041   -4.65    besar     ✓
+   HTTP Req Count                  29259      29457       -198   -1.21    besar     ✓
+   Payload Avg (bytes)              9185       9151        +34    1.01    besar     ✓
+   DB Active Conn                   0.07       0.07      -0.00   -0.04   trivia     ✗
+   DB Cache Hit %                  99.99      99.99      +0.00   -0.32    kecil     ✗
+   DB TPS Delta                    57.97      49.56      +8.41    1.44    besar     ✓
+   DB Query Avg (ms)                0.87       1.03      -0.16   -1.86    besar     ✓
+   Network (KB/s)                  59.74      59.58      +0.16    0.02   trivia     ✗
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     latency_admin_orders                  REST=   83.1  tRPC=   79.8  Δ=   +3.3  d=0.15
+     latency_admin_products                REST=   88.9  tRPC=   88.7  Δ=   +0.2  d=0.01
+     latency_admin_users                   REST=   85.7  tRPC=   85.4  Δ=   +0.3  d=0.02
+     latency_dashboard                     REST=  109.6  tRPC=  107.4  Δ=   +2.2  d=0.10
+     latency_product_create                REST=   58.7  tRPC=   51.9  Δ=   +6.8  d=0.94
+     latency_product_update                REST=   57.0  tRPC=   50.8  Δ=   +6.1  d=0.88
+
+S05_ADMIN / LOAD / C3 (N=1)
+   ⚠  INTERIM: N=1 < 10 — bukan confirmatory penuh
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                          N/A     315.24        N/A     N/A        ?     —
+   P99 (ms)                          N/A     397.76        N/A     N/A        ?     —
+   Throughput (req/s)                N/A      13.68        N/A     N/A        ?     —
+   Avg RT (ms)                       N/A     130.51        N/A     N/A        ?     —
+   CPU % (Node)                      N/A      31.48        N/A     N/A        ?     —
+   CPU % (System)                    N/A      33.63        N/A     N/A        ?     —
+   RAM (MB)                          N/A     248.39        N/A     N/A        ?     —
+   SLA Breach Rate                   N/A     0.0000        N/A     N/A        ?     —
+   Func. Error Rate                  N/A     0.0000        N/A     N/A        ?     —
+   HTTP Req Failed                   N/A     0.0035        N/A     N/A        ?     —
+   HTTP Req Count                    N/A      29584        N/A     N/A        ?     —
+   Payload Avg (bytes)               N/A       9188        N/A     N/A        ?     —
+   DB Active Conn                    N/A       0.07        N/A     N/A        ?     —
+   DB Cache Hit %                    N/A      99.99        N/A     N/A        ?     —
+   DB TPS Delta                      N/A      59.72        N/A     N/A        ?     —
+   DB Query Avg (ms)                 N/A       1.03        N/A     N/A        ?     —
+   Network (KB/s)                    N/A      59.81        N/A     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+S05_ADMIN / SOAK (N=1)
+   Metrik                           REST       tRPC          Δ       d      Mag   Sig
+   --------------------------------------------------------------------------------
+   P95 (ms)                       309.61     314.79      -5.18     N/A        ?     —
+   P99 (ms)                       375.74     388.68     -12.94     N/A        ?     —
+   Throughput (req/s)              14.27      14.30      -0.03     N/A        ?     —
+   Avg RT (ms)                    128.38     134.36      -5.99     N/A        ?     —
+   CPU % (Node)                    34.12      33.98      +0.13     N/A        ?     —
+   CPU % (System)                  36.69      36.04      +0.65     N/A        ?     —
+   RAM (MB)                       165.33     213.18     -47.85     N/A        ?     —
+   SLA Breach Rate                0.0000     0.0002    -0.0002     N/A        ?     —
+   Func. Error Rate               0.0000     0.0001    -0.0001     N/A        ?     —
+   HTTP Req Failed                0.0000     0.0037    -0.0037     N/A        ?     —
+   HTTP Req Count                 214066     214518       -452     N/A        ?     —
+   Payload Avg (bytes)              9221       9181        +40     N/A        ?     —
+   DB Active Conn                   0.07       0.07      -0.00     N/A        ?     —
+   DB Cache Hit %                  99.99      99.99      +0.00     N/A        ?     —
+   DB TPS Delta                    64.25      54.17     +10.08     N/A        ?     —
+   DB Query Avg (ms)                0.85       1.41      -0.55     N/A        ?     —
+   Network (KB/s)                  70.03      66.17      +3.86     N/A        ?     —
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Memory slope REST: slope = 0.0033 MB/sample (≈2.40 MB/hour @ 5s interval), R²=0.406, p=0.0000
+   Memory slope tRPC: slope = 0.0032 MB/sample (≈2.28 MB/hour @ 5s interval), R²=0.180, p=0.0000
+
+S05_ADMIN / SPIKE (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                      9387.00    9959.67    -572.67   -0.81    besar     ✗
+   P99 (ms)                     10213.38   11339.41   -1126.04   -0.90    besar     ✗
+   Throughput (req/s)              15.48      15.16      +0.32    0.90    besar     ✗
+   Avg RT (ms)                   2316.39    2382.36     -65.97   -0.79   sedang     ✗
+   CPU % (Node)                    33.22      32.11      +1.11    0.26    kecil     ✗
+   CPU % (System)                  34.52      33.58      +0.94    0.21    kecil     ✗
+   RAM (MB)                       169.67     200.78     -31.11   -1.87    besar     ✗
+   SLA Breach Rate                0.0279     0.0094    +0.0185    0.49    kecil     ✗
+   Func. Error Rate               0.0002     0.0001    +0.0001    0.19   trivia     ✗
+   HTTP Req Failed                0.0001     0.0062    -0.0061   -6.19    besar    ✓*
+   HTTP Req Count                   8277       8147       +130    0.90    besar     ✗
+   Payload Avg (bytes)              9234       9185        +49    4.71    besar    ✓*
+   DB Active Conn                   0.08       0.10      -0.02   -0.52   sedang     ✗
+   DB Cache Hit %                  99.98      99.98      +0.00    0.00   trivia     —
+   DB TPS Delta                    63.96      51.55     +12.41    1.58    besar     ✗
+   DB Query Avg (ms)                0.88       1.09      -0.21   -2.55    besar    ✓*
+   Network (KB/s)                  75.56      68.99      +6.57    0.30    kecil     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     latency_admin_orders                  REST=  969.5  tRPC=  470.8  Δ= +498.7  d=0.57
+     latency_admin_products                REST=  956.0  tRPC=  556.6  Δ= +399.4  d=0.42
+     latency_admin_users                   REST=  730.7  tRPC=  388.6  Δ= +342.1  d=0.46
+     latency_dashboard                     REST= 1181.1  tRPC=  657.7  Δ= +523.4  d=0.39
+     latency_product_create                REST=  488.4  tRPC=  318.4  Δ= +170.0  d=0.61
+     latency_product_update                REST=  443.7  tRPC=  302.0  Δ= +141.7  d=0.68
+
+S05_ADMIN / STRESS (N=3)
+   Metrik                           REST       tRPC          Δ       d      Mag  Sig*
+   --------------------------------------------------------------------------------
+   P95 (ms)                      1465.33    1342.51    +122.82    0.65   sedang     ✗
+   P99 (ms)                      2792.50    2371.04    +421.46    0.94    besar     ✗
+   Throughput (req/s)              29.57      29.90      -0.32   -1.15    besar     ✗
+   Avg RT (ms)                    370.42     350.37     +20.05    1.66    besar     ✗
+   CPU % (Node)                    62.95      65.40      -2.46   -1.24    besar     ✗
+   CPU % (System)                  63.93      66.41      -2.48   -1.22    besar     ✗
+   RAM (MB)                       188.19     233.61     -45.42   -1.04    besar     ✗
+   SLA Breach Rate                0.0072     0.0067    +0.0005    0.67   sedang     ✗
+   Func. Error Rate               0.0008     0.0011    -0.0003   -0.58   sedang     ✗
+   HTTP Req Failed                0.0007     0.0076    -0.0069   -7.05    besar    ✓*
+   HTTP Req Count                  40999      41393       -394   -1.13    besar     ✗
+   Payload Avg (bytes)              9147       9100        +47   11.96   tidak_     ⚠
+   DB Active Conn                   0.18       0.15      +0.03    1.28    besar     ✗
+   DB Cache Hit %                  99.99      99.99      +0.00    0.00   trivia     —
+   DB TPS Delta                   116.78     101.88     +14.90    5.16    besar    ✓*
+   DB Query Avg (ms)                0.98       1.17      -0.19   -2.19    besar     ✗
+   Network (KB/s)                 125.20     127.43      -2.23   -1.48    besar     ✗
+   (* = exploratory N=3, t-test referensi saja — power sangat rendah, df=2)
+   Legenda Sig: ✓ signifikan | ✗ tidak | ⚠ sig tapi d tidak_interpretatif (SD≈0) | — tidak dapat dinilai
+
+   Per-Endpoint P95 (ms):
+     latency_admin_orders                  REST=  245.6  tRPC=  206.1  Δ=  +39.4  d=0.76
+     latency_admin_products                REST=  216.3  tRPC=  244.7  Δ=  -28.4  d=-0.44
+     latency_admin_users                   REST=  200.6  tRPC=  146.8  Δ=  +53.8  d=0.63
+     latency_dashboard                     REST=  314.4  tRPC=  257.5  Δ=  +56.8  d=0.92
+     latency_product_create                REST=   77.5  tRPC=   79.5  Δ=   -2.0  d=-0.34
+     latency_product_update                REST=   74.5  tRPC=   75.7  Δ=   -1.2  d=-0.24
+
+================================================================================
+DECOMPOSITION ANALYSIS
+================================================================================
+
+  C3 — s02_shopping
+    avg_rt               Auth contrib: 114.9%  Remaining: -14.9% ⚠
+    p95                  Auth contrib: 115.5%  Remaining: -15.5% ⚠
+    p99                  Auth contrib: 140.1%  Remaining: -40.1% ⚠
+    throughput           Auth contrib: 91.4%  Remaining: 8.6%
+    cpu_pct              Auth contrib: 159.8%  Remaining: -59.8% ⚠
+    mem_mb               Auth contrib: 90.6%  Remaining: 9.4%
+
+    ⚠ ANOMALY TERDETEKSI — satu atau lebih metrik memiliki
+      auth contrib >100% atau <0%. Ini bukan bug pipeline;
+      kemungkinan single run noise (N=1 C3). Interpretasi
+      hanya indikatif, bukan konfirmatori. Lihat catatan
+      di bab 4 pembahasan untuk framing yang tepat.
+
+  C4 — s02_shopping
+    HTTP reduction: -3.9% | P95 reduction: -48.9% | Throughput gain: 4.0%
+
+  C3 — s03_checkout
+    avg_rt               Auth contrib: 55.9%  Remaining: 44.1%
+    p95                  Auth contrib: 89.8%  Remaining: 10.2%
+    p99                  Auth contrib: 235.4%  Remaining: -135.4% ⚠
+    throughput           Auth contrib: 51.1%  Remaining: 48.9%
+    cpu_pct              Auth contrib: 59.5%  Remaining: 40.5%
+    mem_mb               Auth contrib: 25.9%  Remaining: 74.1%
+
+    ⚠ ANOMALY TERDETEKSI — satu atau lebih metrik memiliki
+      auth contrib >100% atau <0%. Ini bukan bug pipeline;
+      kemungkinan single run noise (N=1 C3). Interpretasi
+      hanya indikatif, bukan konfirmatori. Lihat catatan
+      di bab 4 pembahasan untuk framing yang tepat.
+
+  C3 — s04_auth
+    avg_rt               Auth contrib: -214.2%  Remaining: 314.2% ⚠
+    p95                  Auth contrib: -409.9%  Remaining: 509.9% ⚠
+    p99                  Auth contrib: -513.0%  Remaining: 613.0% ⚠
+    throughput           Auth contrib: -289.2%  Remaining: 389.2% ⚠
+    cpu_pct              Auth contrib: -32.2%  Remaining: 132.2% ⚠
+    mem_mb               Auth contrib: 7.5%  Remaining: 92.5%
+
+    ⚠ ANOMALY TERDETEKSI — satu atau lebih metrik memiliki
+      auth contrib >100% atau <0%. Ini bukan bug pipeline;
+      kemungkinan single run noise (N=1 C3). Interpretasi
+      hanya indikatif, bukan konfirmatori. Lihat catatan
+      di bab 4 pembahasan untuk framing yang tepat.
+
+  C3 — s05_admin
+    avg_rt               Auth contrib: -232.2%  Remaining: 332.2% ⚠
+    p95                  Auth contrib: 5671.5%  Remaining: -5571.5% ⚠
+    p99                  Auth contrib: -709.0%  Remaining: 809.0% ⚠
+    throughput           Auth contrib: -72.0%  Remaining: 172.0% ⚠
+    cpu_pct              Auth contrib: -131.0%  Remaining: 231.0% ⚠
+    mem_mb               Auth contrib: -534.7%  Remaining: 634.7% ⚠
+
+    ⚠ ANOMALY TERDETEKSI — satu atau lebih metrik memiliki
+      auth contrib >100% atau <0%. Ini bukan bug pipeline;
+      kemungkinan single run noise (N=1 C3). Interpretasi
+      hanya indikatif, bukan konfirmatori. Lihat catatan
+      di bab 4 pembahasan untuk framing yang tepat.
+
+================================================================================
+ORDER EFFECT VERIFICATION — Counterbalancing Check
+================================================================================
+  Verifikasi bahwa Δ (REST-tRPC) konsisten di rest-first vs trpc-first subgroup.
+
+  ✓ S01_BROWSE (rf=5, tf=5): ✓ Counterbalancing efektif — tidak ada order effect signifikan
+  ⚠ S02_SHOPPING (rf=5, tf=5): ⚠ ORDER EFFECT TERDETEKSI — periksa metrik yang flagged
+      ⚠ throughput: Δ_rf=+0.19  Δ_tf=+0.75  ratio=0.25  same_dir=True
+  ✓ S03_CHECKOUT (rf=5, tf=5): ✓ Counterbalancing efektif — tidak ada order effect signifikan
+  ⚠ S04_AUTH (rf=5, tf=5): ⚠ ORDER EFFECT TERDETEKSI — periksa metrik yang flagged
+      ⚠ p95: Δ_rf=+49.11  Δ_tf=+7.25  ratio=6.77  same_dir=True
+      ⚠ throughput: Δ_rf=-0.26  Δ_tf=+0.08  ratio=3.25  same_dir=False
+  ⚠ S05_ADMIN (rf=5, tf=5): ⚠ ORDER EFFECT TERDETEKSI — periksa metrik yang flagged
+      ⚠ p95: Δ_rf=-5.31  Δ_tf=+4.89  ratio=1.09  same_dir=False
+      ⚠ cpu_pct: Δ_rf=+0.36  Δ_tf=-0.90  ratio=0.41  same_dir=False
+      ⚠ mem_mb: Δ_rf=-15.36  Δ_tf=-1.73  ratio=8.88  same_dir=True
+
+  ⚠ Order effect terdeteksi pada beberapa metrik/skenario.
+  Periksa dan dokumentasikan di bab 5 limitasi.
+
+================================================================================
+INTERPRETASI NARATIF — JAWABAN PERTANYAAN PENELITIAN
+================================================================================
+
+  REST lebih optimal di 50 kasus vs tRPC di 8 kasus dari seluruh kasus dengan efek ≥sedang atau signifikan. REST secara konsisten lebih baik di 3 dari 4 metrik primer lintas skenario.
+
+  ────────────────────────────────────────────────────────────────────────────
+  RQ1: Bagaimana perbandingan kinerja tRPC dan REST API berdasarkan response time, thro
+  ────────────────────────────────────────────────────────────────────────────
+
+  REST konsisten lebih baik pada 6 metrik (P95 Latency (ms), CPU Usage (Node, %), System CPU (%), RAM Usage (MB)). tRPC tidak menunjukkan keunggulan konsisten di metrik manapun pada beban normal.
+
+  REST dominan: P95 Latency (ms), CPU Usage (Node, %), System CPU (%), RAM Usage (MB), SLA Breach Rate
+  tRPC: tidak menunjukkan keunggulan konsisten di metrik manapun pada beban normal.
+
+  ────────────────────────────────────────────────────────────────────────────
+  RQ2: Dalam kondisi beban atau skenario apa REST atau tRPC menunjukkan performa lebih
+  ────────────────────────────────────────────────────────────────────────────
+
+  REST lebih optimal (50 kasus):
+    REST lebih optimal pada 50 kasus meliputi: S01 Browse LOAD, S01 Browse SPIKE, S01 Browse STRESS, S02 Shopping LOAD, S02 Shopping SPIKE, S02 Shopping S       
+
+  tRPC lebih optimal (8 kasus):
+    tRPC lebih optimal pada 8 kasus meliputi: S01 Browse STRESS, S04 Auth SPIKE, S05 Admin LOAD, S05 Admin STRESS. Keunggulan tRPC bersifat eksploratoris        
+
+  Overall: REST lebih optimal di 50 kasus vs tRPC di 8 kasus dari total kasus dengan efek ≥sedang atau signifikan. REST unggul pada hampir semua kondisi beban ya
+
+  Kasus REST konfirmatoris:
+    → S01 Browse LOAD (N=10): REST lebih baik pada P95 Latency (ms) (REST=43.27 vs tRPC=51.74, -16.4%, d=-
+    → S01 Browse LOAD (N=10): REST lebih baik pada Throughput (req/s) (REST=92.82 vs tRPC=92.72, +0.1%, d=
+    → S01 Browse LOAD (N=10): REST lebih baik pada CPU Usage (Node, %) (REST=5.06 vs tRPC=6.37, -20.6%, d=
+    → S01 Browse LOAD (N=10): REST lebih baik pada RAM Usage (MB) (REST=236.67 vs tRPC=296.08, -20.1%, d=-
+    → S01 Browse LOAD (N=10): REST lebih baik pada Avg Response Time (ms) (REST=33.04 vs tRPC=34.91, -5.3%
+
+  Kasus tRPC:
+    ↑ S01 Browse STRESS (N=3): tRPC lebih baik pada Throughput (req/s) (REST=212.26 vs tRPC=219.16, -3.1%,
+    ↑ S01 Browse STRESS (N=3): tRPC lebih baik pada Avg Response Time (ms) (REST=145.71 vs tRPC=79.33, +83
+    ↑ S04 Auth SPIKE (N=3): tRPC lebih baik pada SLA Breach Rate (REST=0.00 vs tRPC=0.00, +88.5%, d=3.23,
+    ↑ S05 Admin LOAD (N=10): tRPC lebih baik pada Throughput (req/s) (REST=13.52 vs tRPC=13.62, -0.7%, d=-
+    ↑ S05 Admin STRESS (N=3): tRPC lebih baik pada P95 Latency (ms) (REST=1465.33 vs tRPC=1342.51, +9.1%,
+
+  ────────────────────────────────────────────────────────────────────────────
+  RQ3: Arsitektur API mana yang lebih tepat direkomendasikan untuk skalabilitas dan efi
+  ────────────────────────────────────────────────────────────────────────────
+
+  Rekomendasi utama: REST
+  Berdasarkan data empiris, REST lebih direkomendasikan untuk sistem e-commerce dengan prioritas performa dan efisiensi resource. REST secara konsisten lebih efisien pada 6 metrik primer dan unggul di 5
+
+  Per use case:
+    [REST] Sistem e-commerce prioritas performa
+          REST konsisten lebih rendah pada CPU (0.7–1.3% lebih hemat) dan RAM di semua skenario. Latency P95 l
+    [REST] Server dengan resource terbatas
+          tRPC membutuhkan 49–81MB RAM lebih banyak (15–27%) di semua skenario yang diuji. REST lebih hemat re
+    [REST] Skenario write-heavy (checkout, transaksi)
+          REST throughput lebih tinggi pada S03 Checkout dan avg response time lebih rendah secara signifikan.
+    [tRPC (dengan catatan)] Tim TypeScript penuh, prioritas type safety dan DX
+          tRPC memberikan end-to-end type safety dan developer experience superior. Trade-off: overhead resour
+    [tRPC] Prototype / aplikasi internal skala kecil
+          Kecepatan pengembangan dan type safety tRPC lebih bernilai daripada perbedaan performa yang kecil se
+
+  ────────────────────────────────────────────────────────────────────────────
+  TEMUAN NOTABLE PER SKENARIO (Load C2)
+  ────────────────────────────────────────────────────────────────────────────
+
+  S01_BROWSE / LOAD: REST unggul di 3 metrik signifikan vs tRPC 0
+    → P95 Latency (ms): REST lebih rendah (REST=43.27 vs tRPC=51.74, Δ=-8.47, -16.4%). Efek besar (d=-0.80
+       Praktis: Selisih 8.5ms (16.4% dari baseline) — bermakna secara praktis
+    → CPU Usage (Node, %): REST lebih rendah (REST=5.06 vs tRPC=6.37, Δ=-1.31, -20.6%). Efek besar (d=-4.0
+       Praktis: Selisih 1.3% CPU — praktis tidak bermakna
+    → RAM Usage (MB): REST lebih rendah (REST=236.67 vs tRPC=296.08, Δ=-59.42, -20.1%). Efek besar (d=-1.6
+       Praktis: Selisih 59MB (20.1%) — perlu diperhatikan
+
+  S02_SHOPPING / LOAD: REST unggul di 2 metrik signifikan vs tRPC 0
+    → CPU Usage (Node, %): REST lebih rendah (REST=14.68 vs tRPC=15.78, Δ=-1.10, -7.0%). Efek besar (d=-1.
+       Praktis: Selisih 1.1% CPU — praktis tidak bermakna
+    → RAM Usage (MB): REST lebih rendah (REST=253.01 vs tRPC=301.91, Δ=-48.89, -16.2%). Efek besar (d=-1.6
+       Praktis: Selisih 49MB (16.2%) — perlu diperhatikan
+
+  S03_CHECKOUT / LOAD: REST unggul di 3 metrik signifikan vs tRPC 0
+    → Throughput (req/s): REST lebih tinggi (REST=226.80 vs tRPC=216.78, Δ=+10.02, +4.6%). Efek sedang (d=
+       Praktis: Selisih 10.02 req/s — bermakna
+    → RAM Usage (MB): REST lebih rendah (REST=332.96 vs tRPC=390.18, Δ=-57.22, -14.7%). Efek besar (d=-1.4
+       Praktis: Selisih 57MB (14.7%) — perlu diperhatikan
+    → Avg Response Time (ms): REST lebih rendah (REST=173.82 vs tRPC=212.57, Δ=-38.75, -18.2%). Efek sedan
+       Praktis: Selisih 18.2% dari baseline
+
+  S04_AUTH / LOAD: REST unggul di 1 metrik signifikan vs tRPC 0
+    ⚠ CPU_SATURATED: kedua backend CPU >85% — bottleneck bukan protokol
+    → RAM Usage (MB): REST lebih rendah (REST=222.03 vs tRPC=303.22, Δ=-81.18, -26.8%). Efek besar (d=-2.7
+       Praktis: Selisih 81MB (26.8%) — perlu diperhatikan
+
+  S05_ADMIN / LOAD: tRPC unggul di 1 metrik signifikan vs REST 0
+    → Throughput (req/s): tRPC lebih tinggi (REST=13.52 vs tRPC=13.62, Δ=-0.09, -0.7%). Efek besar (d=-1.2
+       Praktis: Selisih 0.09 req/s — praktis tidak bermakna
+
+Generating report ke: D:\TUGAS AKHIR\LINUX\E-COMMERCE TUGAS AKHIR\e-commerce\k6-performance\results\ZENIT_Analysis_Pipeline\analysis\../charts/
+
+  ✓ Raw JSON: D:\TUGAS AKHIR\LINUX\E-COMMERCE TUGAS AKHIR\e-commerce\k6-performance\results\ZENIT_Analysis_Pipeline\analysis\../charts/ZENIT_Analysis_Raw.json
+  ✓ New sheets: CrossScenario, EffectSizeMatrix, SoakComparison, OrderEffects, ChartDesc
+  ✓ Excel: D:\TUGAS AKHIR\LINUX\E-COMMERCE TUGAS AKHIR\e-commerce\k6-performance\results\ZENIT_Analysis_Pipeline\analysis\../charts/ZENIT_Analysis_Report.xlsx
+  ✓ SLA/Error chart: ALL_sla_error_chart.png
+  ✓ Bar chart: s01_browse_load_C2_comparison.png
+  ✓ Cohen's d: s01_browse_load_C2_cohens_d.png
+  ✓ Bootstrap CI: s01_browse_load_bootstrap_ci.png
+  ✓ Boxplot: s01_browse_load_C2_boxplot.png
+  ✓ Paired scatter: s01_browse_load_C2_paired_scatter.png
+  ✓ Percentile profile: s01_browse_load_C2_percentile_profile.png
+  ✓ Forest plot: s01_browse_load_C2_forest_plot.png
+  ✓ Soak timeseries: s01_browse_soak_timeseries.png
+  ✓ Bar chart: s01_browse_spike_C2_comparison.png
+  ✓ Cohen's d: s01_browse_spike_C2_cohens_d.png
+  ✓ Dot plot: s01_browse_spike_C2_dotplot.png
+  ✓ Forest plot: s01_browse_spike_C2_forest_plot.png
+  ✓ Bar chart: s01_browse_stress_C2_comparison.png
+  ✓ Cohen's d: s01_browse_stress_C2_cohens_d.png
+  ✓ Dot plot: s01_browse_stress_C2_dotplot.png
+  ✓ Forest plot: s01_browse_stress_C2_forest_plot.png
+  ✓ Bar chart: s02_shopping_load_C2_comparison.png
+  ✓ Cohen's d: s02_shopping_load_C2_cohens_d.png
+  ✓ Bootstrap CI: s02_shopping_load_bootstrap_ci.png
+  ✓ Boxplot: s02_shopping_load_C2_boxplot.png
+  ✓ Paired scatter: s02_shopping_load_C2_paired_scatter.png
+  ✓ Percentile profile: s02_shopping_load_C2_percentile_profile.png
+  ✓ Forest plot: s02_shopping_load_C2_forest_plot.png
+  ✓ Bar chart: s02_shopping_load_C3_comparison.png
+  ✓ Bar chart: s02_shopping_load_C4_comparison.png
+  ✓ Soak timeseries: s02_shopping_soak_timeseries.png
+  ✓ Bar chart: s02_shopping_spike_C2_comparison.png
+  ✓ Cohen's d: s02_shopping_spike_C2_cohens_d.png
+  ✓ Dot plot: s02_shopping_spike_C2_dotplot.png
+  ✓ Forest plot: s02_shopping_spike_C2_forest_plot.png
+  ✓ Bar chart: s02_shopping_stress_C2_comparison.png
+  ✓ Cohen's d: s02_shopping_stress_C2_cohens_d.png
+  ✓ Dot plot: s02_shopping_stress_C2_dotplot.png
+  ✓ Forest plot: s02_shopping_stress_C2_forest_plot.png
+  ✓ Bar chart: s03_checkout_load_C2_comparison.png
+  ✓ Cohen's d: s03_checkout_load_C2_cohens_d.png
+  ✓ Bootstrap CI: s03_checkout_load_bootstrap_ci.png
+  ✓ Boxplot: s03_checkout_load_C2_boxplot.png
+  ✓ Paired scatter: s03_checkout_load_C2_paired_scatter.png
+  ✓ Percentile profile: s03_checkout_load_C2_percentile_profile.png
+  ✓ Forest plot: s03_checkout_load_C2_forest_plot.png
+  ✓ Bar chart: s03_checkout_load_C3_comparison.png
+  ✓ Soak timeseries: s03_checkout_soak_timeseries.png
+  ✓ Bar chart: s03_checkout_spike_C2_comparison.png
+  ✓ Cohen's d: s03_checkout_spike_C2_cohens_d.png
+  ✓ Dot plot: s03_checkout_spike_C2_dotplot.png
+  ✓ Forest plot: s03_checkout_spike_C2_forest_plot.png
+  ✓ Bar chart: s03_checkout_stress_C2_comparison.png
+  ✓ Cohen's d: s03_checkout_stress_C2_cohens_d.png
+  ✓ Dot plot: s03_checkout_stress_C2_dotplot.png
+  ✓ Forest plot: s03_checkout_stress_C2_forest_plot.png
+  ✓ Bar chart: s04_auth_load_C2_comparison.png
+  ✓ Cohen's d: s04_auth_load_C2_cohens_d.png
+  ✓ Bootstrap CI: s04_auth_load_bootstrap_ci.png
+  ✓ Boxplot: s04_auth_load_C2_boxplot.png
+  ✓ Paired scatter: s04_auth_load_C2_paired_scatter.png
+  ✓ Percentile profile: s04_auth_load_C2_percentile_profile.png
+  ✓ Forest plot: s04_auth_load_C2_forest_plot.png
+  ✓ Bar chart: s04_auth_load_C3_comparison.png
+  ✓ Soak timeseries: s04_auth_soak_timeseries.png
+  ✓ Bar chart: s04_auth_spike_C2_comparison.png
+  ✓ Cohen's d: s04_auth_spike_C2_cohens_d.png
+  ✓ Dot plot: s04_auth_spike_C2_dotplot.png
+  ✓ Forest plot: s04_auth_spike_C2_forest_plot.png
+  ✓ Bar chart: s04_auth_stress_C2_comparison.png
+  ✓ Cohen's d: s04_auth_stress_C2_cohens_d.png
+  ✓ Dot plot: s04_auth_stress_C2_dotplot.png
+  ✓ Forest plot: s04_auth_stress_C2_forest_plot.png
+  ✓ Bar chart: s05_admin_load_C2_comparison.png
+  ✓ Cohen's d: s05_admin_load_C2_cohens_d.png
+  ✓ Bootstrap CI: s05_admin_load_bootstrap_ci.png
+  ✓ Boxplot: s05_admin_load_C2_boxplot.png
+  ✓ Paired scatter: s05_admin_load_C2_paired_scatter.png
+  ✓ Percentile profile: s05_admin_load_C2_percentile_profile.png
+  ✓ Forest plot: s05_admin_load_C2_forest_plot.png
+  ✓ Bar chart: s05_admin_load_C3_comparison.png
+  ✓ Soak timeseries: s05_admin_soak_timeseries.png
+  ✓ Bar chart: s05_admin_spike_C2_comparison.png
+  ✓ Cohen's d: s05_admin_spike_C2_cohens_d.png
+  ✓ Dot plot: s05_admin_spike_C2_dotplot.png
+  ✓ Forest plot: s05_admin_spike_C2_forest_plot.png
+  ✓ Bar chart: s05_admin_stress_C2_comparison.png
+  ✓ Cohen's d: s05_admin_stress_C2_cohens_d.png
+  ✓ Dot plot: s05_admin_stress_C2_dotplot.png
+  ✓ Forest plot: s05_admin_stress_C2_forest_plot.png
+
+Report selesai. 86 chart dihasilkan.
+   Excel: D:\TUGAS AKHIR\LINUX\E-COMMERCE TUGAS AKHIR\e-commerce\k6-performance\results\ZENIT_Analysis_Pipeline\analysis\../charts/ZENIT_Analysis_Report.xlsx    
+
+[<<>>] Done
+   Excel:  D:\TUGAS AKHIR\LINUX\E-COMMERCE TUGAS AKHIR\e-commerce\k6-performance\results\ZENIT_Analysis_Pipeline\analysis\../charts/ZENIT_Analysis_Report.xlsx   
+   Charts: 86 file di D:\TUGAS AKHIR\LINUX\E-COMMERCE TUGAS AKHIR\e-commerce\k6-performance\results\ZENIT_Analysis_Pipeline\analysis\../charts/charts/
